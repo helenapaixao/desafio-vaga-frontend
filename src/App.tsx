@@ -1,7 +1,16 @@
 import React from "react";
 
-function App() {
-  return <h1>Hello</h1>;
-}
+import SignIn from './pages/SignIn'
+import GlobalStyle from './styles/global'
 
-export default App;
+
+function App() {
+    return (
+        <>
+        <SignIn/>
+        <GlobalStyle/>
+        </>
+    )
+  }
+  
+  export default App;
