@@ -15,7 +15,7 @@ export const Background = styled.div`
     background-size: cover;
     margin-top: 70px;
     background-size: 600px;
-    margin-left: 50px;
+    margin-left: px;
 
     svg {
       background-size: 16px;

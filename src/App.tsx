@@ -8,7 +8,7 @@ import GlobalStyle from './styles/global'
 function App() {
     return (
         <>
-        <SignUp/>
+        <SignIn/>
         <GlobalStyle/>
         </>
     )

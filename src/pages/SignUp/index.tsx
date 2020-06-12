@@ -49,13 +49,13 @@ const handleSubmit = useCallback(async (data: object) => {
             <Content>
                 <Form ref={formRef} onSubmit={handleSubmit}>
                     <h1>Faça seu cadastro</h1>
-                    <Input name="name" icon={FiUser} placeholder="Nome" />
-                    {/* <Input
+                    <Input name="name"type="text" icon={FiUser} placeholder="Nome" />
+                    <Input
                         name="email"
                         icon={FiMail}
                         type="email"
                         placeholder="E-mail"
-                    /> */}
+                    />
                     <Input name="password" type="password" icon={FiLock} placeholder="Senha" />
                     <Input name="cpf" icon={FiCreditCard} placeholder="CPF" />
                     <Input name="cep" icon={FiSend} placeholder="Rua" />
