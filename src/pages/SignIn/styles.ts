@@ -12,6 +12,7 @@ export const Background = styled.div`
     flex: 1;
     background: url(${signBackgroundImg}) no-repeat center;
     background-size: cover;
+    
 `;
 
 export const Content = styled.div`
