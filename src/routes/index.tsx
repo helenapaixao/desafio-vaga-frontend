@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
-import Dashboard from '../pages/Dashboard';
+import SigIn from '../pages/SignIn';
+import SigUp from '../pages/SignUp';
+
+
 
 const Routes: React.FC = () => (
     <Switch>
-        <Route path="/" exact component={SignIn} />
-        <Route path="/SignUp" component={SignUp} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/" exact component={SigIn}/>
+        <Route path="/signup" component={SigUp} />
     </Switch>
-);
+)
 
-export default Routes;
+export default Routes; 
