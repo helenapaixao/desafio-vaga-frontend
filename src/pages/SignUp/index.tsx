@@ -2,9 +2,8 @@ import React, {
     useCallback,
     useRef,
     useState,
-    useEffect,
 } from 'react';
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
 import {
     FiUser,
     FiMail,
@@ -13,6 +12,10 @@ import {
     FiArrowLeft,
     FiSend,
 } from 'react-icons/fi';
+
+import { Link, useHistory } from 'react-router-dom';
+import api from '../../services/api';
+import { useToast } from '../../hooks/toast';
 
 import axios from 'axios';
 
@@ -25,15 +28,27 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import getValidationErrors from '../../utils/getValidationErrors';
 
+interface SignUpFormData {
+    name: string;
+    email: string;
+    password: string;
+}
+
+
 
 const SignUp: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
+    const { addToast } = useToast();
+    const history = useHistory();
     const [ceps, setCeps] = useState<string[]>([]);
     const [selectedCEP, setSelectedCEP] = useState<string[]>([]);
 
 
+    
 
-    const handleSubmit = useCallback(async (data: object) => {
+
+
+    const handleSubmit = useCallback(async (data: SignUpFormData) => {
         try {
             formRef.current?.setErrors([]);
             const shema = Yup.object().shape({
@@ -48,21 +63,38 @@ const SignUp: React.FC = () => {
                 bairro: Yup.string().required('Bairro Obrigatório'),
                 city: Yup.string().required('Cidade obrigatória'),
             });
-            await shema.validate(data, {
-                abortEarly: false,
+            await api.post('/usuarios', data);
+            history.push('/');
+            addToast({
+                type: 'sucess',
+                title: 'Cadastro realizado!',
+                description: 'Você já pode fazer seu login',
             });
         } catch (err) {
-            console.log(err);
-            const errors = getValidationErrors(err);
-            formRef.current?.setErrors(errors);
+            if (err instanceof Yup.ValidationError) {
+                const errors = getValidationErrors(err);
+                formRef.current?.setErrors(errors);
+                return;
+            }
+
+            addToast({
+                type: 'error',
+                title: 'Erro no cadastro',
+                description:
+                    'Ocorreu um erro ao fazer o cadastro, tente novamente!!',
+            });
         }
-    }, []);
+    },
+    [addToast, history],
+);
+    
 
 
     return (
         <Container>
             <Background />
             <Content>
+            <AnimationContainer>
                 <Form ref={formRef} onSubmit={handleSubmit}>
                     <h1>Faça seu cadastro</h1>
                     <Input
@@ -96,10 +128,11 @@ const SignUp: React.FC = () => {
                     <Button type="submit">Cadastrar</Button>
                 </Form>
 
-                <a href="forgot">
-                    <FiArrowLeft />
-                    Voltar para o Login
-                </a>
+                <Link to="/">
+                        <FiArrowLeft />
+                        Voltar para Login
+                    </Link>
+                </AnimationContainer>
             </Content>
         </Container>
     );
