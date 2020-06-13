@@ -54,7 +54,8 @@ export const Content = styled.div`
     > a {
         color: #ff9000;
         display: block;
-        margin-top: 10px;
+        margin-right: 30px;
+        margin-top: -10px;
         text-decoration: none;
         transition: color 0.2s;
         display: flex;

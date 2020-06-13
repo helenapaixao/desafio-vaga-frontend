@@ -1,0 +1,16 @@
+{
+    "usuarios": [
+        {
+            "id": "1",
+            "nome": "Helena Paixão",
+            "cpf": "03617143199",
+            "email":"hp.helenapaixao@gmail.com",
+            "endereco": {
+                "cep": 79041290,
+                "rua":"rua Ibirapuera",
+                "bairro":"são lourenço",
+                "cidade": "campo grande"
+            }
+          }
+    ]
+}
