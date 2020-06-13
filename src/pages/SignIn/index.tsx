@@ -40,7 +40,6 @@ const SignIn: React.FC = () => {
                 formRef.current?.setErrors({});
 
                 const shema = Yup.object().shape({
-                    name: Yup.string().required('Nome obrigatório'),
                     email: Yup.string().required('Email obrigatório').email(),
                     password: Yup.string().required('Senha obrigatória'),
                 });
@@ -49,7 +48,7 @@ const SignIn: React.FC = () => {
                     abortEarly: false,
                 });
 
-                signIn({
+                await signIn({
                     email: data.email,
                     password: data.password,
                 });

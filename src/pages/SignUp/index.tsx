@@ -1,7 +1,7 @@
 import React, {
     useCallback,
     useRef,
-    useState,
+
 } from 'react';
 import { Container, Content, AnimationContainer, Background } from './styles';
 import {
@@ -14,10 +14,10 @@ import {
 } from 'react-icons/fi';
 
 import { Link, useHistory } from 'react-router-dom';
-import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
 
-import axios from 'axios';
+// import axios from 'axios';
+import api from '../../services/api';
 
 import * as Yup from 'yup';
 
@@ -32,6 +32,10 @@ interface SignUpFormData {
     name: string;
     email: string;
     password: string;
+    cpf: string;
+    cep:string;
+    bairro: string;
+    city: string;
 }
 
 
@@ -40,11 +44,8 @@ const SignUp: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
     const history = useHistory();
-    const [ceps, setCeps] = useState<string[]>([]);
-    const [selectedCEP, setSelectedCEP] = useState<string[]>([]);
-
-
-    
+    // const [ceps, setCeps] = useState<string[]>([]);
+    // const [selectedCEP, setSelectedCEP] = useState<string[]>([]);
 
 
 
@@ -63,12 +64,16 @@ const SignUp: React.FC = () => {
                 bairro: Yup.string().required('Bairro Obrigatório'),
                 city: Yup.string().required('Cidade obrigatória'),
             });
+            await shema.validate(data, {
+                abortEarly: false,
+            });
+
             await api.post('/usuarios', data);
             history.push('/');
             addToast({
                 type: 'sucess',
                 title: 'Cadastro realizado!',
-                description: 'Você já pode fazer seu login',
+                description: 'Você já pode fazer seu logon no GoBarbar!',
             });
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
@@ -121,7 +126,7 @@ const SignUp: React.FC = () => {
                         name="cep"
                         icon={FiSend}
                         placeholder="CEP"
-                        value={selectedCEP}
+                        
                     />
                     <Input name="bairro" icon={FiSend} placeholder="Bairro" />
                     <Input name="city" icon={FiSend} placeholder="Cidade" />

@@ -32,23 +32,25 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const signIn = useCallback(async ({ email, password }) => {
-        const response = await api.post('sessions', {
+        const response = await api.post('usuarios', {
             email,
             password,
         });
 
-        const { token, user } = response.data;
+        // const { token, user } = response.data;
 
-        localStorage.setItem('@CadastroUsuario:token', token);
-        localStorage.setItem('@CadastroUsuario:user', JSON.stringify(user));
+        console.log(response.data)
 
-        setData({token,user});
+        // localStorage.setItem('@GoBarber:token', token);
+        // localStorage.setItem('@GoBarber:user', user);
+
+        // setData({token,user});
     }, []);
 
     const signOut = useCallback(() => {
 
-         localStorage.removeItem('@CadastroUsuario:token');
-       localStorage.removeItem('@CadastroUsuario:user');
+         localStorage.removeItem('@GoBarber:token');
+       localStorage.removeItem('@GoBarber:user');
 
        setData({} as AuthState);
 
