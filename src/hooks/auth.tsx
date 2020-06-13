@@ -2,8 +2,8 @@ import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
 interface AuthState {
-    token: string;
-    user: object;
+    id: string;
+    name: string;
 }
 
 interface signInCredentials {
@@ -12,7 +12,7 @@ interface signInCredentials {
 }
 
 interface AuthContextData {
-   user: object;
+   name: string;
     signIn(credentials: signInCredentials): Promise<void>;
     signOut(): void;
 }
@@ -21,11 +21,11 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
     const [data, setData] = useState<AuthState>(() => {
-        const token = localStorage.getItem('@GoBarber:token');
-        const user = localStorage.getItem('@GoBarber:user');
+        const id = localStorage.getItem('@GoBarber:token');
+        const name = localStorage.getItem('@GoBarber:user');
 
-        if (token && user) {
-            return { token, user: JSON.parse(user) };
+        if (id && name) {
+            return { id, name };
         }
 
         return {} as AuthState;
@@ -37,14 +37,14 @@ const AuthProvider: React.FC = ({ children }) => {
             password,
         });
 
-        // const { token, user } = response.data;
+         const { id, name } = response.data;
 
-        console.log(response.data)
+      
 
-        // localStorage.setItem('@GoBarber:token', token);
-        // localStorage.setItem('@GoBarber:user', user);
+         localStorage.setItem('@GoBarber:token', id);
+         localStorage.setItem('@GoBarber:user', name);
 
-        // setData({token,user});
+         setData({id,name});
     }, []);
 
     const signOut = useCallback(() => {
@@ -57,7 +57,7 @@ const AuthProvider: React.FC = ({ children }) => {
     },[])
 
     return (
-        <AuthContext.Provider value={{user:data.user , signIn, signOut}}>
+        <AuthContext.Provider value={{name:data.name , signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     );
