@@ -1,21 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-import GlobalStyle from './styles/global'
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import GlobalStyle from './styles/global';
 
-import {AuthProvider} from './hooks/AuthContext';
-
+import AppProvider from './hooks/index';
 
 const App: React.FC = () => (
-
     <>
-    <AuthProvider>
-    <SignIn/>
+        <AppProvider>
+            <SignIn />
+        </AppProvider>
 
-    </AuthProvider>
-    <GlobalStyle/>
+        <GlobalStyle />
     </>
-
-)
-  export default App;
+);
+export default App;
