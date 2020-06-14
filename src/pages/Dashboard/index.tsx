@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Container,
     Header,
@@ -6,14 +6,56 @@ import {
     Profile,
     Content,
     Shedule,
-    Card,
+    UsersContainer,
 } from './styles';
+import { Link } from 'react-router-dom';
 import { FiPower, FiUser, FiCreditCard, FiAnchor } from 'react-icons/fi';
 import { useAuth } from '../../hooks/auth';
-import { Link } from 'react-router-dom';
+import User from '../../components/User';
+import api from '../../services/api';
+
+interface Userdata {
+    id: number;
+    name: string;
+    email: string;
+    password: string;
+    cpf:number;
+    avatar_url: string;
+    endereco: string;
+    numero: number;
+    rua: string;
+    cidade: string;
+}
 
 const Dashboard: React.FC = () => {
+    const [users, setUsers] = useState<Userdata[]>([]);
+    const [editingUser, setEditingUser] = useState<Userdata>({} as Userdata);
     const { signOut } = useAuth();
+
+    useEffect(() => {
+        api.get('/users').then(resp => {
+            setUsers(resp.data);
+        });
+    }, []);
+
+    async function handleUpdateUser(user: Omit<Userdata, 'id'>): Promise<void> {
+        const { id } = editingUser;
+        const responseEdit = await api.put<Userdata>(`/users/${id}`, {
+            ...user,
+            id,
+        });
+        const newUsers = [...users];
+        const indexUser = newUsers.findIndex(w => w.id === id);
+        newUsers[indexUser] = responseEdit.data;
+        setUsers([...newUsers]);
+    }
+
+    async function handleDeleteUser(id: number): Promise<void> {}
+
+    function handleEditUser(user: Userdata): void {
+        setEditingUser(user);
+    }
+
     return (
         <Container>
             <Header>
@@ -26,10 +68,12 @@ const Dashboard: React.FC = () => {
 
                         <div>
                             <span>Bem-vindo,</span>
-                           <Link to="/profile">
-                           <strong>Helena Paixão</strong></Link> 
+                            <Link to="/profile">
+                                <strong>Helena Paixão</strong>
+                            </Link>
                         </div>
                     </Profile>
+
                     <button type="button" onClick={signOut}>
                         <FiPower />
                     </button>
@@ -41,23 +85,18 @@ const Dashboard: React.FC = () => {
                     <p>
                         <span>Cadastrados</span>
                     </p>
-                    <Card>
-                        <div>
-                            <img
-                                src="https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4"
-                                alt="Helena Paixão"
-                            />
-                            <strong>Helena Paixão</strong>
-                            <span>
-                                <FiUser />
-                                Nome
-                                <FiCreditCard />
-                                CPF
-                                <FiAnchor />
-                                Cidade
-                            </span>
-                        </div>
-                    </Card>
+
+                    <UsersContainer data-testid="foods-list">
+                        {users &&
+                            users.map(user => (
+                                <User
+                                    key={user.id}
+                                    user={user}
+                                    handleDelete={handleDeleteUser}
+                                    handleEditUser={handleEditUser}
+                                />
+                            ))}
+                    </UsersContainer>
                 </Shedule>
             </Content>
         </Container>

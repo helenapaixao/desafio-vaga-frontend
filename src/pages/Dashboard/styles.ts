@@ -47,15 +47,13 @@ export const Profile = styled.div`
     }
 
     a {
-        text-decoration:none;
+        text-decoration: none;
         color: #ff9000;
-        
+
         &::hover {
             opacity: 0.8;
         }
     }
-
-   
 `;
 
 export const Content = styled.main`
@@ -93,57 +91,15 @@ export const Shedule = styled.div`
     }
 `;
 
-export const Card = styled.div`
-    margin-top: 64px;
+export const UsersContainer = styled.div`
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 0;
+    margin-top: -140px;
 
-    >strong {
-        color: #999591;
-        font-size: 20px;
-        font-weight: 400;
-    }
+    display: grid;
 
-    div {
-        background: #3e3b47;
-        display: flex;
-        align-items: center;
-        padding: 16px 24px;
-        border-radius: 10px;
-        margin-top: 24px;
-        position:relative;
-
-        &::before {
-            position: absolute;
-            height: 80%;
-            width: 1px;
-            left: 0;
-            top: 10%;
-            content: '';
-            background: #ff9000;
-        }
-
-        img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-
-        strong {
-            margin-left: 24px;
-            color: #FFF;
-        }
-        span {
-            margin-left: auto;
-            display: flex;
-            align-items:center;
-            color: #999591;
-
-            svg {
-                color: #ff9000;
-                margin-right: 8px;
-                margin-left:8px;
-            }
-
-        }
-
-    }
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
 `;
