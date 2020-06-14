@@ -1,6 +1,8 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
+
+
 interface AuthState {
     id: string;
     name: string;
@@ -32,7 +34,7 @@ const AuthProvider: React.FC = ({ children }) => {
     });
 
     const signIn = useCallback(async ({ email, password }) => {
-        const response = await api.post('usuarios', {
+        const response = await api.post('user', {
             email,
             password,
         });

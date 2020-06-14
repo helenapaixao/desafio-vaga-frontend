@@ -1,38 +1,48 @@
 {
-  "usuarios": [
+  "user": [
     {
       "id": 1,
-      "user": {
-        "token": 12312312,
-        "name": "teste",
-        "email": "teste@teste.com.br",
-        "password": 123456
+      "name": "Helena Paixão",
+      "email": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "password": "123456",
+      "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "endereco": {
+        "cep": 79041290,
+        "rua": "rua teste",
+        "numero": "bairro azul",
+        "cidade": "campo grande"
       }
     },
     {
-      "email": "teste@teste.com.br",
+      "id": 1,
+      "name": "Helena Paixão",
+      "email": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "password": "123456",
+      "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "endereco": {
+        "cep": 79041290,
+        "rua": "rua teste",
+        "numero": "bairro azul",
+        "cidade": "campo grande"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Helena Paixão",
+      "email": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "password": "123456",
+      "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "endereco": {
+        "cep": 79041290,
+        "rua": "rua teste",
+        "numero": "bairro azul",
+        "cidade": "campo grande"
+      }
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 2
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 3
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 4
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 5
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 6
     }
   ]
 }
