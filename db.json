@@ -3,9 +3,9 @@
     {
       "id": 1,
       "name": "Helena Paixão",
-      "email": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
-      "cpf":"089.098.908-99",
+      "cpf": "089.098.908-99",
       "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "endereco": {
         "cep": 79041290,
@@ -19,6 +19,7 @@
       "name": "João",
       "email": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
       "password": "123456",
+      "cpf": "089.098.908-99",
       "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "endereco": {
         "cep": 79041290,
@@ -41,14 +42,59 @@
       }
     },
     {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 2
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
+      "email": "teste@teste.com.br",
       "password": "123456",
       "id": 4
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 11
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 12
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 13
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 14
     }
   ]
 }

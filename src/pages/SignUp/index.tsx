@@ -18,6 +18,7 @@ import { useToast } from '../../hooks/toast';
 
 // import axios from 'axios';
 import api from '../../services/api';
+import logoImg from '../../assets/logo.svg';
 
 import * as Yup from 'yup';
 
@@ -100,6 +101,7 @@ const SignUp: React.FC = () => {
             <Background />
             <Content>
             <AnimationContainer>
+            <img src={logoImg} alt="GoBarber" />
                 <Form ref={formRef} onSubmit={handleSubmit}>
                     <h1>Faça seu cadastro</h1>
                     <Input

@@ -3,10 +3,14 @@ import api from '../services/api';
 
 
 
+
+
 interface AuthState {
     id: string;
     name: string;
 }
+
+
 
 interface signInCredentials {
     email: string;
@@ -14,7 +18,7 @@ interface signInCredentials {
 }
 
 interface AuthContextData {
-   name: string;
+   id: string;
     signIn(credentials: signInCredentials): Promise<void>;
     signOut(): void;
 }
@@ -39,27 +43,27 @@ const AuthProvider: React.FC = ({ children }) => {
             password,
         });
 
-         const { id, name } = response.data;
+         const { id, name} = response.data;
 
       
 
-         localStorage.setItem('@GoBarber:token', id);
-         localStorage.setItem('@GoBarber:user', name);
+         localStorage.setItem('@GoCadastro:token', id);
+         localStorage.setItem('@GoCadastro:user', name);
 
          setData({id,name});
     }, []);
 
     const signOut = useCallback(() => {
 
-         localStorage.removeItem('@GoBarber:token');
-       localStorage.removeItem('@GoBarber:user');
+         localStorage.removeItem('@GoCadastro:token');
+       localStorage.removeItem('@GoCadastro:user');
 
        setData({} as AuthState);
 
     },[])
 
     return (
-        <AuthContext.Provider value={{name:data.name , signIn, signOut}}>
+        <AuthContext.Provider value={{id:data.id , signIn, signOut}}>
             {children}
         </AuthContext.Provider>
     );

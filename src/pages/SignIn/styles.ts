@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import signBackgroundImg from '../../assets/sign-in-background.svg';
+import signBackgroundImg from '../../assets/sign-in-background.png';
 import { shade } from 'polished';
 
 export const Container = styled.div`

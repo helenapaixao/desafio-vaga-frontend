@@ -96,9 +96,9 @@ export const UsersContainer = styled.div`
     max-width: 1280px;
     margin: 0 auto;
     padding: 40px 0;
-    margin-top: -140px;
+    margin-top: -100px;
 
-    display: grid;
+    display: list-item;
 
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 32px;

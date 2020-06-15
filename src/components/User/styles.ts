@@ -5,7 +5,7 @@ export const Container = styled.div``;
 
 
 export const Card = styled.div`
-    margin-top: 64px;
+    margin-top: 120px;
 
     >strong {
         color: #999591;
@@ -45,6 +45,7 @@ export const Card = styled.div`
         span {
             margin-left: auto;
             display: flex;
+            size: 8px;
             align-items:center;
             color: #999591;
 
@@ -57,4 +58,21 @@ export const Card = styled.div`
         }
 
     }
+
+    button {
+        background: #ff9000;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        border: none;
+        transition: 0.1s;
+
+        svg {
+          color: #3d3d4d;
+        }
+
+        & + button {
+          margin-left: 6px;
+        }
+      }
 `;

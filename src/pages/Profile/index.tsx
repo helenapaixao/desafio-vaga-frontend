@@ -36,6 +36,20 @@ interface ProfileFormData {
     city: string;
 }
 
+
+interface Userdata  {
+    id: number;
+    name: string;
+    email: string;
+    cpf:number;
+    password: string;
+    avatar_url: string;
+    endereco: string;
+    numero: number;
+    rua: string;
+    cidade: string;
+}
+
 const Profile: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
@@ -43,7 +57,7 @@ const Profile: React.FC = () => {
     // const [ceps, setCeps] = useState<string[]>([]);
     // const [selectedCEP, setSelectedCEP] = useState<string[]>([]);
 
-    const {name} = useAuth();
+    const {signIn} = useAuth();
 
     const handleSubmit = useCallback(
         async (data: ProfileFormData) => {
@@ -65,7 +79,7 @@ const Profile: React.FC = () => {
                     abortEarly: false,
                 });
 
-                await api.post('/usuarios', data);
+                await api.post('/users', data);
                 history.push('/');
                 addToast({
                     type: 'sucess',
@@ -101,7 +115,7 @@ const Profile: React.FC = () => {
             </header>
             <Content>
                 <Form ref={formRef} initialData={{
-                    name:"Helena Paixão",
+                    name:"teste",
                     email:"hp.helenapaixao@gmail.com",
                     cpf: "123.123.123-00"
                 }} onSubmit={handleSubmit}>

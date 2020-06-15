@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
                         <span>Cadastrados</span>
                     </p>
 
-                    <UsersContainer data-testid="foods-list">
+                    <UsersContainer>
                         {users &&
                             users.map(user => (
                                 <User

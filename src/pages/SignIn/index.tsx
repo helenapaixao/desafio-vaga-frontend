@@ -18,6 +18,7 @@ import { useToast } from '../../hooks/toast';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import SignUp from '../SignUp';
+import logoImg from '../../assets/logo.svg';
 
 
 
@@ -57,6 +58,7 @@ const SignIn: React.FC = () => {
                 if(err instanceof Yup.ValidationError) {
                     const errors = getValidationErrors(err);
                     formRef.current?.setErrors(errors);
+                    return;
                 }
                 addToast({
                     type: 'error',
@@ -72,8 +74,9 @@ const SignIn: React.FC = () => {
         <Container>
             <Content>
             <AnimationContainer>
+            <img src={logoImg} alt="GoBarber" />
                     <Form ref={formRef} onSubmit={handleSubmit}>
-                        <h1>Faça seu logon</h1>
+                        <h1>Faça seu login</h1>
                         <Input
                             name="email"
                             icon={FiMail}

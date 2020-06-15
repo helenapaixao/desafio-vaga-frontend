@@ -15,7 +15,7 @@ interface Userdata {
     id: number;
     name: string;
     email: string;
-    cpf:number;
+    cpf: number;
     password: string;
     avatar_url: string;
     endereco: string;
@@ -43,19 +43,34 @@ const User: React.FC<UserProps> = ({
         <Container>
             <Card>
                 <div>
-                    <img
-                        src="https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4"
-                        alt="Helena Paixão"
-                    />
+                    <img src={user.avatar_url} alt={user.name} />
                     <strong> {user.name}</strong>
                     <span>
-                        <FiUser />
-                       
                         <FiCreditCard />
                         {user.cpf}
                         <FiAnchor />
                         Cidade
                     </span>
+                    <section>
+                        <div>
+                            <button
+                                type="button"
+                                className="icon"
+                                onClick={() => setEditingUser()}
+                                data-testid={`edit-user-${user.id}`}
+                            >
+                                <FiEdit3 size={20} />
+                            </button>
+                            <button
+                                type="button"
+                                className="icon"
+                                onClick={() => handleDelete(user.id)}
+                                data-testid={`remove-user-${user.id}`}
+                            >
+                                <FiTrash size={20} />
+                            </button>
+                        </div>
+                    </section>
                 </div>
             </Card>
         </Container>
