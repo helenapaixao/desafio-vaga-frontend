@@ -69,13 +69,13 @@ const SignUp: React.FC = () => {
                 abortEarly: false,
             });
 
-            await api.post('/usuarios', data);
+            await api.post('/users', data);
             history.push('/');
             addToast({
-                type: 'sucess',
-                title: 'Cadastro realizado!',
-                description: 'Você já pode fazer seu logon no GoBarbar!',
-            });
+                type: 'success',
+                title: 'Cadastro realizado! 🚀',
+                description: 'Você já pode fazer seu logon no GoBarber! 🔥',
+              });
         } catch (err) {
             if (err instanceof Yup.ValidationError) {
                 const errors = getValidationErrors(err);

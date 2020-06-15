@@ -41,7 +41,7 @@ const SignIn: React.FC = () => {
                 formRef.current?.setErrors({});
 
                 const shema = Yup.object().shape({
-                    email: Yup.string().required('Email obrigatório').email(),
+                    email: Yup.string().required('Email obrigatório').email('Digite um e-mail válido'),
                     password: Yup.string().required('Senha obrigatória'),
                 });
 
@@ -89,7 +89,7 @@ const SignIn: React.FC = () => {
                             placeholder="Senha"
                         />
                         <Button type="submit">Entrar</Button>
-                        <a href="forgot"> Esqueci minha senha</a>
+                        <Link to="/forgot-password">Esqueci minha senha</Link>
                     </Form>
                     <Link to="/signup">
                         <FiLogIn />

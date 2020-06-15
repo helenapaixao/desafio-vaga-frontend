@@ -1,174 +1,177 @@
-import React, { useCallback, useRef } from 'react';
-import { Container, Content, AvatarInput } from './styles';
-import {
-    FiUser,
-    FiMail,
-    FiLock,
-    FiCreditCard,
-    FiSend,
-    FiCamera,
-    FiArrowLeft,
-} from 'react-icons/fi';
-
-import { useHistory, Link } from 'react-router-dom';
-import { useToast } from '../../hooks/toast';
-
-// import axios from 'axios';
-import api from '../../services/api';
-
-import * as Yup from 'yup';
-
-import { Form } from '@unform/web';
+import React, { useCallback, useRef, ChangeEvent } from 'react';
+import { FiArrowLeft, FiMail, FiUser, FiLock, FiCamera } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import * as Yup from 'yup';
+import { Link, useHistory } from 'react-router-dom';
 
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import api from '../../services/api';
+import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
+
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+
+import { Container, Content, AvatarInput } from './styles';
 import { useAuth } from '../../hooks/auth';
 
 interface ProfileFormData {
-    name: string;
-    email: string;
-    password: string;
-    cpf: string;
-    cep: string;
-    bairro: string;
-    city: string;
-}
-
-
-interface Userdata  {
-    id: number;
-    name: string;
-    email: string;
-    cpf:number;
-    password: string;
-    avatar_url: string;
-    endereco: string;
-    numero: number;
-    rua: string;
-    cidade: string;
+  name: string;
+  email: string;
+  old_password?: string;
+  password?: string;
+  password_confirmation?: string;
 }
 
 const Profile: React.FC = () => {
-    const formRef = useRef<FormHandles>(null);
-    const { addToast } = useToast();
-    const history = useHistory();
-    // const [ceps, setCeps] = useState<string[]>([]);
-    // const [selectedCEP, setSelectedCEP] = useState<string[]>([]);
+  const formRef = useRef<FormHandles>(null);
+  const { addToast } = useToast();
+  const {id} = useAuth();
 
-    const {signIn} = useAuth();
+  const history = useHistory();
 
-    const handleSubmit = useCallback(
-        async (data: ProfileFormData) => {
-            try {
-                formRef.current?.setErrors([]);
-                const shema = Yup.object().shape({
-                    name: Yup.string().required('Nome obrigatório'),
-                    email: Yup.string().required('Email obrigatório').email(),
-                    password: Yup.string().min(
-                        4,
-                        'No minimo senha com 4 caracteres',
-                    ),
-                    cpf: Yup.string().required('CPF obrigatório'),
-                    cep: Yup.string().required('CEP obrigatório'),
-                    bairro: Yup.string().required('Bairro Obrigatório'),
-                    city: Yup.string().required('Cidade obrigatória'),
-                });
-                await shema.validate(data, {
-                    abortEarly: false,
-                });
+  const handleSubmit = useCallback(
+    async (data: ProfileFormData) => {
+      try {
+        formRef.current?.setErrors({});
 
-                await api.post('/users', data);
-                history.push('/');
-                addToast({
-                    type: 'sucess',
-                    title: 'Cadastro realizado!',
-                    description: 'Você já pode fazer seu logon no GoBarbar!',
-                });
-            } catch (err) {
-                if (err instanceof Yup.ValidationError) {
-                    const errors = getValidationErrors(err);
-                    formRef.current?.setErrors(errors);
-                    return;
-                }
+        const schema = Yup.object().shape({
+          name: Yup.string().required('Nome obrigatório'),
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('Digite um e-mail valido'),
+          old_password: Yup.string(),
+          password: Yup.string().when('old_password', {
+            is: (val) => !!val.length,
+            then: Yup.string()
+              .min(4, 'No mínimo 04 dígitos')
+              .required('Campo obrigatório'),
+            otherwise: Yup.string(),
+          }),
+          password_confirmation: Yup.string()
+            .when('old_password', {
+              is: (val) => !!val.length,
+              then: Yup.string().required('Campo obrigatório'),
+              otherwise: Yup.string(),
+            })
+            .oneOf([Yup.ref('password')], 'Confirmação incorreta'),
+        });
 
-                addToast({
-                    type: 'error',
-                    title: 'Erro no cadastro',
-                    description:
-                        'Ocorreu um erro ao fazer o cadastro, tente novamente!!',
-                });
-            }
-        },
-        [addToast, history],
-    );
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-    return (
-        <Container>
-            <header>
-                <div>
-                    <Link to="/dashboard">
-                        <FiArrowLeft />
-                    </Link>
-                </div>
-            </header>
-            <Content>
-                <Form ref={formRef} initialData={{
-                    name:"teste",
-                    email:"hp.helenapaixao@gmail.com",
-                    cpf: "123.123.123-00"
-                }} onSubmit={handleSubmit}>
-                    <AvatarInput>
-                        <img
-                            src="https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4"
-                            alt="Helena Paixão"
-                        />
-                        <button type="button">
-                            <FiCamera />
-                        </button>
-                    </AvatarInput>
-                    <h1>Meu Perfil</h1>
+        const {
+          name,
+          email,
+          old_password,
+          password,
+          password_confirmation,
+        } = data;
 
-                    <Input
-                        name="name"
-                        type="text"
-                        icon={FiUser}
-                        placeholder="Nome"
-                    />
-                    <Input name="cpf" icon={FiCreditCard} placeholder="CPF" />
-                    <Input
-                        name="email"
-                        icon={FiMail}
-                        type="email"
-                        placeholder="E-mail"
-                    />
+        const formData = {
+          name,
+          email,
+          ...(old_password && {
+            old_password,
+            password,
+            password_confirmation,
+          }),
+        };
+      
+        history.push('/dashboard');
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
 
-                    <Input
-                        containerStyle={{ marginTop: 24 }}
-                        name="old_password"
-                        type="password"
-                        icon={FiLock}
-                        placeholder="Senha atual"
-                    />
-                    <Input
-                        name="password"
-                        type="password"
-                        icon={FiLock}
-                        placeholder="Nova senha"
-                    />
+          formRef.current?.setErrors(errors);
 
-                    <Input
-                        name="password_confirmation"
-                        type="password"
-                        icon={FiLock}
-                        placeholder="Confirmar senha"
-                    />
-                    <Button type="submit">Confirmar Mudança</Button>
-                </Form>
-            </Content>
-        </Container>
-    );
+          return;
+        }
+
+        addToast({
+          type: 'error',
+          title: 'Erro na atualização 🥴',
+          description:
+            '😣️ Ocorreu um erro ao atualizar perfil, tente novamente. 🤔️',
+        });
+      }
+    },
+    [addToast, history],
+  );
+
+  const handleAvatarChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      if (event.target.files) {
+        const data = new FormData();
+
+        data.append('avatar', event.target.files[0]);
+
+      }
+    },
+    [addToast],
+  );
+
+  return (
+    <Container>
+      <header>
+        <div>
+          <Link to="/dashboard">
+            <FiArrowLeft />
+          </Link>
+        </div>
+      </header>
+
+      <Content>
+        <Form
+          ref={formRef}
+          initialData={{
+            name: "Helena",
+            email:"hp.helenapaixao",
+          }}
+          onSubmit={handleSubmit}
+        >
+          <AvatarInput>
+            <img src="https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4"alt="Helena Paixão" />
+            <label htmlFor="avatar">
+              <FiCamera />
+
+              <input type="file" id="avatar" onChange={handleAvatarChange} />
+            </label>
+          </AvatarInput>
+
+          <h1>Meu perfil</h1>
+
+          <Input name="name" icon={FiUser} placeholder="Nome" />
+          <Input name="email" icon={FiMail} placeholder="E-mail" />
+
+          <Input
+            containerStyle={{ marginTop: 24 }}
+            name="old_password"
+            icon={FiLock}
+            type="password"
+            placeholder="Senha atual"
+          />
+
+          <Input
+            name="password"
+            icon={FiLock}
+            type="password"
+            placeholder="Nova senha"
+          />
+
+          <Input
+            name="password_confirmation"
+            icon={FiLock}
+            type="password"
+            placeholder="Confirmar senha"
+          />
+
+          <Button type="submit">Confirmar mudanças</Button>
+        </Form>
+      </Content>
+    </Container>
+  );
 };
 
 export default Profile;

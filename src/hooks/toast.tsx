@@ -5,12 +5,12 @@ import {uuid} from 'uuidv4'
 
 
 
- export interface ToastMessage {
+export interface ToastMessage {
     id: string;
-    type?: 'sucess' | 'error' | 'info';
+    type?: 'info' | 'success' | 'error';
     title: string;
     description?: string;
-}
+  }
 
 interface ToastContextData {
     addToast(message: Omit<ToastMessage , 'id'>): void;

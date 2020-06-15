@@ -3,6 +3,18 @@ import api from '../services/api';
 
 
 
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    password: string;
+    cpf: number;
+    avatar_url: string;
+    endereco: string;
+    numero: number;
+    rua: string;
+    cidade: string;
+}
 
 
 interface AuthState {
@@ -10,15 +22,13 @@ interface AuthState {
     name: string;
 }
 
-
-
 interface signInCredentials {
     email: string;
     password: string;
 }
 
 interface AuthContextData {
-   id: string;
+    id: string;
     signIn(credentials: signInCredentials): Promise<void>;
     signOut(): void;
 }
@@ -43,27 +53,23 @@ const AuthProvider: React.FC = ({ children }) => {
             password,
         });
 
-         const { id, name} = response.data;
+        const { id, name } = response.data;
 
-      
+        localStorage.setItem('@GoCadastro:token', id);
+        localStorage.setItem('@GoCadastro:user', name);
 
-         localStorage.setItem('@GoCadastro:token', id);
-         localStorage.setItem('@GoCadastro:user', name);
-
-         setData({id,name});
+        setData({ id, name });
     }, []);
 
     const signOut = useCallback(() => {
+        localStorage.removeItem('@GoCadastro:token');
+        localStorage.removeItem('@GoCadastro:user');
 
-         localStorage.removeItem('@GoCadastro:token');
-       localStorage.removeItem('@GoCadastro:user');
-
-       setData({} as AuthState);
-
-    },[])
+        setData({} as AuthState);
+    }, []);
 
     return (
-        <AuthContext.Provider value={{id:data.id , signIn, signOut}}>
+        <AuthContext.Provider value={{ id: data.id, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     );
@@ -72,10 +78,10 @@ const AuthProvider: React.FC = ({ children }) => {
 function useAuth(): AuthContextData {
     const context = useContext(AuthContext);
 
-    if(!context) {
-        throw new Error('useAuth must be used within a AuthProvider')
+    if (!context) {
+        throw new Error('useAuth must be used within a AuthProvider');
     }
     return context;
 }
 
-export {  AuthProvider, useAuth };
+export { AuthProvider, useAuth };
