@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { FiPlusSquare, FiPower } from 'react-icons/fi';
+import { FiPower } from 'react-icons/fi';
 import { Container, Profile } from './styles';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
 import Logo from '../../assets/logo.svg';
+
+interface Userdata {
+    id: number;
+    name: string;
+    email: string;
+    cpf: number;
+    password: string;
+    avatar_url: string;
+    endereco: string;
+    numero: number;
+    rua: string;
+    cidade: string;
+}
 
 interface IHeaderProps {
     openModal: () => void;
@@ -13,6 +26,7 @@ interface IHeaderProps {
 
 const Header: React.FC<IHeaderProps> = ({ openModal }) => {
     const { signOut } = useAuth();
+    const [users, setUsers] = useState<Userdata[]>([]);
 
     return (
         <Container>

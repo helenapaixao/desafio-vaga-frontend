@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Content, Shedule, UsersContainer } from './styles';
-import { Link } from 'react-router-dom';
-import { FiPower, FiUser, FiCreditCard, FiAnchor } from 'react-icons/fi';
 
 import User from '../../components/User';
 import api from '../../services/api';
@@ -27,8 +25,6 @@ const Dashboard: React.FC = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [editModalOpen, setEditModalOpen] = useState(false);
 
- 
-
     useEffect(() => {
         api.get('/users').then(resp => {
             setUsers(resp.data);
@@ -47,7 +43,13 @@ const Dashboard: React.FC = () => {
         setUsers([...newUsers]);
     }
 
-    async function handleDeleteUser(id: number): Promise<void> {}
+    async function handleDeleteUser(id: number): Promise<void> {
+        await api.delete(`/users/${id}`);
+        const newUsers = [...users];
+        const indexDeleted = newUsers.findIndex((w) => w.id === id);
+        newUsers.splice(indexDeleted, 1);
+        setUsers([...newUsers]);
+      }
 
     function toggleModal(): void {
         setModalOpen(!modalOpen);
@@ -64,9 +66,7 @@ const Dashboard: React.FC = () => {
 
     return (
         <Container>
-            <Header openModal={toggleModal}>
-             
-            </Header>
+            <Header openModal={toggleModal}></Header>
             <ModalEditUser
                 isOpen={editModalOpen}
                 setIsOpen={toggleEditModal}

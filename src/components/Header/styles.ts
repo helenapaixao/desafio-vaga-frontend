@@ -5,19 +5,17 @@ export const Container = styled.div`
     background: #28262e;
 
     header {
-        width: 1280px;
-        margin: 0 auto;
-        padding: 0 0 160px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
     }
 
     nav {
         div {
             button {
                 color: #999591;
-                margin-left: auto;
+                margin-left: 280px;
                 background: transparent;
                 border: 0;
                 height: 20px;
@@ -34,12 +32,13 @@ export const Container = styled.div`
 export const Profile = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 80px;
+    margin-left: 50px;
 
     img {
         width: 56px;
         height: 56px;
         border-radius: 50%;
+        margin-left: 30px;
     }
     div {
         display: flex;
