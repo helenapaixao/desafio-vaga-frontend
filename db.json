@@ -1,18 +1,9 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Helena Paixão",
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "cpf": "089.098.908-99",
-      "avatar_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
-      "endereco": {
-        "cep": 79041290,
-        "rua": "rua teste",
-        "numero": "bairro azul",
-        "cidade": "campo grande"
-      }
+      "price": "",
+      "id": 1
     },
     {
       "id": 2,
@@ -95,6 +86,51 @@
       "email": "teste@teste.com.br",
       "password": "123456",
       "id": 14
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 15
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 16
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 17
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 18
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 19
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 20
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 21
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 22
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 23
     }
   ]
 }

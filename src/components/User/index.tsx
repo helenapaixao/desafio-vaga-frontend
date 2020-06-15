@@ -3,13 +3,12 @@ import React from 'react';
 import {
     FiEdit3,
     FiTrash,
-    FiUser,
     FiCreditCard,
     FiAnchor,
 } from 'react-icons/fi';
 
 import { Container, Card } from './styles';
-import { Link } from 'react-router-dom';
+
 
 interface Userdata {
     id: number;

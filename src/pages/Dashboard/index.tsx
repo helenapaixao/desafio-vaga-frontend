@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import {
-    Container,
-    Header,
-    HeaderContent,
-    Profile,
-    Content,
-    Shedule,
-    UsersContainer,
-} from './styles';
+import { Container, Content, Shedule, UsersContainer } from './styles';
 import { Link } from 'react-router-dom';
 import { FiPower, FiUser, FiCreditCard, FiAnchor } from 'react-icons/fi';
-import { useAuth } from '../../hooks/auth';
+
 import User from '../../components/User';
 import api from '../../services/api';
+import ModalEditUser from '../../components/ModalEditUser';
+import Header from '../../components/Header';
 
 interface Userdata {
     id: number;
     name: string;
     email: string;
     password: string;
-    cpf:number;
+    cpf: number;
     avatar_url: string;
     endereco: string;
     numero: number;
@@ -30,7 +24,10 @@ interface Userdata {
 const Dashboard: React.FC = () => {
     const [users, setUsers] = useState<Userdata[]>([]);
     const [editingUser, setEditingUser] = useState<Userdata>({} as Userdata);
-    const { signOut } = useAuth();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [editModalOpen, setEditModalOpen] = useState(false);
+
+ 
 
     useEffect(() => {
         api.get('/users').then(resp => {
@@ -52,33 +49,30 @@ const Dashboard: React.FC = () => {
 
     async function handleDeleteUser(id: number): Promise<void> {}
 
+    function toggleModal(): void {
+        setModalOpen(!modalOpen);
+    }
+
+    function toggleEditModal(): void {
+        setEditModalOpen(!editModalOpen);
+    }
+
     function handleEditUser(user: Userdata): void {
         setEditingUser(user);
+        toggleEditModal();
     }
 
     return (
         <Container>
-            <Header>
-                <HeaderContent>
-                    <Profile>
-                        <img
-                            src="https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4"
-                            alt="Helena Paixão"
-                        />
-
-                        <div>
-                            <span>Bem-vindo,</span>
-                            <Link to="/profile">
-                                <strong>Helena Paixão</strong>
-                            </Link>
-                        </div>
-                    </Profile>
-
-                    <button type="button" onClick={signOut}>
-                        <FiPower />
-                    </button>
-                </HeaderContent>
+            <Header openModal={toggleModal}>
+             
             </Header>
+            <ModalEditUser
+                isOpen={editModalOpen}
+                setIsOpen={toggleEditModal}
+                editingUser={editingUser}
+                handleUpdateUser={handleUpdateUser}
+            />
             <Content>
                 <Shedule>
                     <h1>Listagem de Usuários</h1>
