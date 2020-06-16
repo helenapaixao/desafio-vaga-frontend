@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 
-import { FiCheckSquare } from 'react-icons/fi';
+
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import Modal from '../Modal';
@@ -73,7 +73,7 @@ const ModalEditUser: React.FC<IModalProps> = ({
                 <Button type="submit" data-testid="edit-user-button">
                     <div className="text">Editar Usuário</div>
                     <div className="icon">
-                        <FiCheckSquare size={30} />
+                     
                     </div>
                 </Button>
             </Form>

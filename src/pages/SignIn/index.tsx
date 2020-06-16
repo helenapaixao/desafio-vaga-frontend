@@ -8,7 +8,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import getValidationErrors from '../../utils/getValidationErrors';
 
-import api from '../../services/api';
+
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ import { useToast } from '../../hooks/toast';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import SignUp from '../SignUp';
+
 import logoImg from '../../assets/logo.svg';
 
 
@@ -53,7 +53,14 @@ const SignIn: React.FC = () => {
                     email: data.email,
                     password: data.password,
                 });
+
                 history.push('/dashboard');
+                addToast({
+                    type: 'success',
+                    title: 'Login realizado! 🚀',
+                    description: 'Bem vindo!!',
+                });
+            
             } catch (err) {
                 if(err instanceof Yup.ValidationError) {
                     const errors = getValidationErrors(err);

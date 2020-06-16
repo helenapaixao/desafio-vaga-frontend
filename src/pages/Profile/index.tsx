@@ -5,7 +5,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { Link, useHistory } from 'react-router-dom';
 
-import api from '../../services/api';
+
 import { useToast } from '../../hooks/toast';
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -13,7 +13,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 
 import { Container, Content, AvatarInput } from './styles';
-import { useAuth } from '../../hooks/auth';
+
 
 interface ProfileFormData {
   name: string;
@@ -26,7 +26,7 @@ interface ProfileFormData {
 const Profile: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
-  const {id} = useAuth();
+
 
   const history = useHistory();
 

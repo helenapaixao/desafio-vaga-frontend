@@ -1,299 +1,195 @@
 {
   "users": [
     {
+      "id": 1,
+      "name": "Helena Paixão",
       "email": "teste@teste.com.br",
+      "cpf": "056.454.989-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 2,
+      "name": "João",
+      "email": "joao@teste.com.br",
+      "cpf": "056.454.949-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 3,
+      "name": "Neymar",
+      "email": "neymar@teste.com.br",
+      "cpf": "056.444.989-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 4,
+      "name": "octocat",
+      "email": "teste@teste.com.br",
+      "cpf": "056.454.984-99",
+      "password": "123456",
+      "avatar_url": "https://randomuser.me/api/portraits/men/75.jpg",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 5,
+      "name": "Helena Paixão",
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 6,
+      "name": "Leo Arnold",
+      "email": "leo.arnold@example.com",
+      "cpf": "056.454.984-99",
+      "password": "123456",
+      "avatar_url": "https://randomuser.me/api/portraits/men/11.jpg",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 7,
+      "name": "Alan Gonzalez",
+      "email": "alan.gonzalez@example.com",
+      "cpf": "056.454.984-99",
+      "password": "123456",
+      "avatar_url": "https://randomuser.me/api/portraits/men/68.jpg",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 8,
+      "name": "Roger",
+      "email": "teste@teste.com.br",
+      "cpf": "056.454.984-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 1,
+      "name": "Batman",
+      "email": "teste@teste.com.br",
+      "cpf": "056.454.984-99",
+      "password": "123456",
+      "avatar_url": "https://randomuser.me/api/portraits/men/40.jpg",
+      "cidade": "Campo Grande"
+    }
+  ],
+  "sessions": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 5
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 10
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 11
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 12
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 13
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 14
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 15
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 16
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 17
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 18
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 19
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 20
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 21
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 22
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 23
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 24
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 25
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 26
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 27
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 28
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 29
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 30
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 31
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 32
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 33
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 34
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 35
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 36
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 37
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 38
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 39
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 40
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 41
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 42
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 43
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 44
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 45
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 46
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 47
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 48
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 49
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 50
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 51
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 52
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 53
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 54
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 55
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 56
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 57
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 58
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 59
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 60
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 61
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 62
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 63
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 64
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 65
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 66
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 67
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 68
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 69
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 70
-    },
-    {
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "id": 71
     }
   ]
 }

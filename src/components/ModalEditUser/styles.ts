@@ -11,7 +11,8 @@ export const Form = styled(Unform)`
         font-weight: 600;
         font-size: 36px;
         line-height: 36px;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
+   
     }
 
     button {

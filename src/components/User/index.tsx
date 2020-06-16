@@ -48,7 +48,7 @@ const User: React.FC<UserProps> = ({
                         <FiCreditCard />
                         {user.cpf}
                         <FiAnchor />
-                        Cidade
+                       {user.cidade}
                     </span>
                     <section>
                         <div>
