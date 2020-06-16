@@ -16,6 +16,7 @@ import {
 } from 'react-icons/fi';
 
 import { Link, useHistory } from 'react-router-dom';
+import useCep from "use-cep-hook";
 import { useToast } from '../../hooks/toast';
 
 import axios from 'axios';
@@ -45,36 +46,39 @@ interface CEPResponse {
     bairro: string;
     logradouro: string;
     localidade: string;
+    cidade: string;
 }
 
 const SignUp: React.FC = () => {
-    const [selectedCep, setSelectedCep] = useState('');
+ 
+    const [postalCode, setPostalCode] = useState("");
+
+    const [loading, cep, error,] = useCep(postalCode);
+
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
     const history = useHistory();
 
-    function handleCEP(event: ChangeEvent<HTMLInputElement>) {
-        const cep = event.target.value;
-        setSelectedCep(cep);
-    }
-
-    //function handleBairro(event: ChangeEvent<HTMLInputElement>) {
-    //  const bairro = event.target.value;
-    //  setSelectedBairro(bairro);
-
-    // }
 
     useEffect(() => {
-        if (selectedCep === '') {
-            return;
-        }
 
         axios
-            .get<CEPResponse[]>(
-                `https://webmaniabr.com/api/1/cep/${selectedCep}/?app_key=kIgtLog0Mm2x10vZpFMt0jvW2vCRj3s5&app_secret=w7BIRk4quymQD2VJZaLSOMzId35eYGQZ7O2Xtn1gvVgepC6u`,
-            )
-            .then(response => {});
-    }, [selectedCep]);
+        .get<CEPResponse[]>(
+            ` https://webmaniabr.com/api/1/cep/${postalCode}/?app_key=kIgtLog0Mm2x10vZpFMt0jvW2vCRj3s5&app_secret=w7BIRk4quymQD2VJZaLSOMzId35eYGQZ7O2Xtn1gvVgepC6u`,
+        )
+       
+        .then(response => {
+            //mudando estado
+          //  const ruas = response.data.map(cep => cep.logradouro);
+          //  setRuas(ruas);
+          //  const bairros = response.data.map(cep => cep.bairro);
+          //  setBairros(bairros);
+          //  const cidades = response.data.map(cep => cep.cidade);
+           // setCidades(cidades);
+           console.log(response.data)
+        });
+       
+    }, [setPostalCode]);
 
     const handleSubmit = useCallback(
         async (data: SignUpFormData) => {
@@ -90,7 +94,7 @@ const SignUp: React.FC = () => {
                     cpf: Yup.string().required('CPF obrigatório'),
                     cep: Yup.string().required('CEP obrigatório'),
                     bairro: Yup.string().required('Bairro Obrigatório'),
-                    city: Yup.string().required('Cidade obrigatória'),
+                    cidade: Yup.string().required('Cidade obrigatória'),
                 });
                 await shema.validate(data, {
                     abortEarly: false,
@@ -157,14 +161,12 @@ const SignUp: React.FC = () => {
                             name="cep"
                             icon={FiSend}
                             placeholder="CEP"
-                            value={selectedCep}
-                            onChange={handleCEP}
+                            onChange={e => setPostalCode(e.target.value)} value={postalCode} 
                         />
                         <Input
                             name="bairro"
                             icon={FiSend}
                             placeholder="Bairro"
-                            onChange={handleCEP}
                         />
                         <Input
                             name="cidade"
