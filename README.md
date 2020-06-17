@@ -18,7 +18,7 @@
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/last-commit/helenapaixao/gobarber-web">
 
   <a href="https://www.linkedin.com/in/helenapaixao/">
-    <img alt="Made by helenapaixao" src="https://img.shields.io/badge/made%20by-Jerp86-%2304D361">
+    <img alt="Made by helenapaixao" src="https://img.shields.io/badge/made%20by-helenapaixao-%2304D361">
   </a>
 </p>
 
