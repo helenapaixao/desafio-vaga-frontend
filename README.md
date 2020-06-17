@@ -124,6 +124,23 @@ Para instalar as dependências e iniciar o projeto, você pode utilizar o Yarn o
 
 ```
 
+## 📦️ Como utilizar a API
+
+Para emular uma API REST completa (CRUD) no backend, você deverá usar o json-server
+
+yarn global add json-server
+
+Para rodar o servidor, use o comando:
+
+```bash
+  # Para rodar o servidor
+  ❯  yarn json-server --watch db.json --delay 2000 --port 5000
+
+ # O endpoint é
+  ❯  http://localhost:5000/usuers
+
+```
+
 ---
 
 
