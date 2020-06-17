@@ -1,19 +1,21 @@
 import React, { useRef, useCallback } from 'react';
 
-
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import Modal from '../Modal';
 import Input from '../Input';
 import Button from '../Button';
-import MaskInput from '../MaskInput'
+import MaskInput from '../MaskInput';
+
+import * as Yup from 'yup';
+import getValidationErrors from '../../utils/getValidationErrors';
 
 interface Userdata {
     id: number;
     name: string;
     email: string;
-    cpf: number;
     password: string;
+    cpf: number;
     avatar_url: string;
     endereco: string;
     numero: number;
@@ -25,8 +27,8 @@ interface UserCreateData {
     id: number;
     name: string;
     email: string;
-    cpf: number;
     password: string;
+    cpf: number;
     avatar_url: string;
     endereco: string;
     numero: number;
@@ -49,9 +51,33 @@ const ModalAddUser: React.FC<ModalProps> = ({
 
     const handleSubmit = useCallback(
         async (data: UserCreateData) => {
-            handleAddUser(data);
-            setIsOpen();
+            try {
+                formRef.current?.setErrors({});
+                const shema = Yup.object().shape({
+                    name: Yup.string().required('Nome obrigatório'),
+                    email: Yup.string()
+                        .required('Email Obrigatório')
+                        .email('Digite um e-mail válid'),
+                    password: Yup.string().required('Senha obrigatória'),
+                    cpf: Yup.string().required('CPF obrigatório'),
+                    cidade: Yup.string().required('Cidade obrigatória'),
+                });
+
+                await shema.validate(data, {
+                    abortEarly: false,
+                });
+
+                await handleAddUser(data);
+                setIsOpen();
+            } catch (err) {
+                if (err instanceof Yup.ValidationError) {
+                    const errors = getValidationErrors(err);
+                    formRef.current?.setErrors(errors);
+                    return;
+                }
+            }
         },
+
         [handleAddUser, setIsOpen],
     );
 
@@ -65,17 +91,12 @@ const ModalAddUser: React.FC<ModalProps> = ({
                 />
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
-                <Input name="password" placeholder="Senha" />
-                <MaskInput
-                            name="cpf"      
-                            placeholder="CPF"
-                            mask="999.999.999-99"
-                        />
+                <Input name="password" type="password" placeholder="Senha" />
+                <Input name="cpf"  placeholder="CPF" />
                 <Input name="cidade" placeholder="Cidade" />
 
                 <Button type="submit" data-testid="add-user-button">
-                    <div className="text">Adicionar Novo  Usuário</div>
-                
+                    <div className="text">Adicionar Novo Usuário</div>
                 </Button>
             </Form>
         </Modal>

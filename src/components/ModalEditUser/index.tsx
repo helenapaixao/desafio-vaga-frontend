@@ -1,12 +1,11 @@
 import React, { useCallback, useRef } from 'react';
 
-
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import Modal from '../Modal';
 import Input from '../Input';
 import Button from '../Button';
-import MaskInput from '../MaskInput'
+import MaskInput from '../MaskInput';
 
 interface Userdata {
     id: number;
@@ -69,17 +68,11 @@ const ModalEditUser: React.FC<IModalProps> = ({
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
                 <Input name="endereco" placeholder="Endereço" />
-                <MaskInput
-                            name="cpf"      
-                            placeholder="CPF"
-                            mask="999.999.999-99"
-                        />
+                <MaskInput mask="999.999.999-99" name="cpf" placeholder="CPF" />
 
                 <Button type="submit" data-testid="edit-user-button">
                     <div className="text">Editar Usuário</div>
-                    <div className="icon">
-                     
-                    </div>
+                    <div className="icon"></div>
                 </Button>
             </Form>
         </Modal>

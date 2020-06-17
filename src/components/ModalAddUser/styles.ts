@@ -12,6 +12,7 @@ export const Form = styled(Unform)`
         font-size: 36px;
         line-height: 36px;
         margin-bottom: 50px;
+        align-items: center;
    
     }
 

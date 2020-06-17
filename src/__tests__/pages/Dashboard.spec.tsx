@@ -49,8 +49,7 @@ describe('Dashboard', () => {
             ),
         ).toBeTruthy();
         expect(getByTestId('remove-user-1')).toBeTruthy();
-        expect(getByTestId('edit-user-1')).toBeTruthy();
-
+        expect(getByTestId('edit-user-1')).toBeTruthy()
        
     });
 
@@ -99,13 +98,6 @@ describe('Dashboard', () => {
             fireEvent.change(inputPassword, { target: { value: '123456' } });
             fireEvent.change(inputCPF, { target: { value: '056.454.989-99' } });
         });
-
-
-        expect(inputName.value).toBe('Helena Paixão');
-        expect(inputEmail.value).toBe('teste@teste.com.br');
-        expect(inputPassword.value).toBe(
-            '123456',
-        );
 
         apiMock.onPut('users/1').reply(200, {
             id: 1,
