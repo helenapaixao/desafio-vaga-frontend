@@ -1,13 +1,15 @@
 import React from 'react';
 
-import { FiPower } from 'react-icons/fi';
+import { FiPower, FiSearch } from 'react-icons/fi';
 import { Container, Profile } from './styles';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
 
-
 import Logo from '../../assets/logo.svg';
+
+
+
 
 interface IHeaderProps {
     openModal: () => void;
@@ -20,6 +22,7 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => {
         <Container>
             <header>
                 <img src={Logo} alt="GoBarber" />
+      
                 <nav>
                     <div>
                         <Profile>
@@ -36,20 +39,22 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => {
                             </div>
                             <div>
                                 <div>
-                                <button type="button" onClick={openModal}>
-                                    <div className="text"> Adicionar novo Usuario</div>
-                                </button>
+                                    <button type="button" onClick={openModal}>
+                                        <div className="text">
+                                            {' '}
+                                            Adicionar novo Usuario
+                                        </div>
+                                    </button>
                                 </div>
-                              
+         
                                 <button type="button" onClick={signOut}>
                                     <FiPower />
                                 </button>
-                              
-                            
                             </div>
                         </Profile>
                     </div>
                 </nav>
+        
             </header>
         </Container>
     );

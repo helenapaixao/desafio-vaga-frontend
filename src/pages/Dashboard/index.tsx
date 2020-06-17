@@ -6,7 +6,8 @@ import api from '../../services/api';
 import ModalEditUser from '../../components/ModalEditUser';
 import ModalAddUser from '../../components/ModalAddUser';
 import Header from '../../components/Header';
-
+import { FiSearch } from 'react-icons/fi';
+import SearchInput from '../../components/SearchInput';
 
 
 interface Userdata {
@@ -22,12 +23,12 @@ interface Userdata {
     cidade: string;
 }
 
-
 const Dashboard: React.FC = () => {
     const [users, setUsers] = useState<Userdata[]>([]);
     const [editingUser, setEditingUser] = useState<Userdata>({} as Userdata);
     const [modalOpen, setModalOpen] = useState(false);
     const [editModalOpen, setEditModalOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         api.get('/users').then(resp => {
@@ -35,20 +36,28 @@ const Dashboard: React.FC = () => {
         });
     }, []);
 
-
-    async function handleAddUser(
-        user: Omit<Userdata, 'id'>,
-      ): Promise<void> {
-        try {
-          const responseAdd = await api.post<Userdata>('/users', {
-            ...user,
-            
-          });
-          setUsers([...users, responseAdd.data]);
-        } catch (err) {
-          console.log(err);
+    useEffect(() => {
+        async function loadUsers(): Promise<void> {
+            api.get(`/users?name_like=${searchValue.replace(' ', '+')}`).then(
+                ({ data: usersContainer }) => {
+                    setUsers(usersContainer);
+                },
+            );
         }
-      }
+
+        loadUsers();
+    }, [searchValue]);
+
+    async function handleAddUser(user: Omit<Userdata, 'id'>): Promise<void> {
+        try {
+            const responseAdd = await api.post<Userdata>('/users', {
+                ...user,
+            });
+            setUsers([...users, responseAdd.data]);
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     async function handleUpdateUser(user: Omit<Userdata, 'id'>): Promise<void> {
         const { id } = editingUser;
@@ -65,10 +74,10 @@ const Dashboard: React.FC = () => {
     async function handleDeleteUser(id: number): Promise<void> {
         await api.delete(`/users/${id}`);
         const newUsers = [...users];
-        const indexDeleted = newUsers.findIndex((w) => w.id === id);
+        const indexDeleted = newUsers.findIndex(w => w.id === id);
         newUsers.splice(indexDeleted, 1);
         setUsers([...newUsers]);
-      }
+    }
 
     function toggleModal(): void {
         setModalOpen(!modalOpen);
@@ -87,11 +96,11 @@ const Dashboard: React.FC = () => {
         <Container>
             <Header openModal={toggleModal}></Header>
             <ModalAddUser
-        isOpen={modalOpen}
-        setIsOpen={toggleModal}
-        handleAddUser={handleAddUser}
-      />
-   
+                isOpen={modalOpen}
+                setIsOpen={toggleModal}
+                handleAddUser={handleAddUser}
+            />
+
             <ModalEditUser
                 isOpen={editModalOpen}
                 setIsOpen={toggleEditModal}
@@ -100,6 +109,13 @@ const Dashboard: React.FC = () => {
             />
             <Content>
                 <Shedule>
+                    <SearchInput
+                        name="search"
+                        value={searchValue}
+                        onChange={e => setSearchValue(e.target.value)}
+                        icon={FiSearch}
+                        placeholder="Buscar Usuário"
+                    />
                     <h1>Listagem de Usuários</h1>
                     <p>
                         <span>Cadastrados</span>
@@ -122,5 +138,3 @@ const Dashboard: React.FC = () => {
     );
 };
 export default Dashboard;
-
-
