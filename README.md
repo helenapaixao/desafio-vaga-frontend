@@ -1,44 +1,135 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  🚀️ Front-end Web 💈️💇‍♂️️ GoBarber 💅️✂️
+</h1>
 
-## Available Scripts
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/helenapaixao/gobarber-web">
 
-In the project directory, you can run:
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/helenapaixao/gobarber-web?logo=typescript">
 
-### `yarn start`
+  <img alt="GitHub repo size in bytes" src="https://img.shields.io/github/repo-size/helenapaixao/gobarber-web?color=green">
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <br>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  <a href="https://www.codacy.com/manual/jerp86/gobarber-web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jerp86/gobarber-web&amp;utm_campaign=Badge_Grade">
+    <img src="https://app.codacy.com/project/badge/Grade/6dd6b46abeb14e99935a2b9ac5c6ede2"/>
+  </a>
 
-### `yarn test`
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/last-commit/helenapaixao/gobarber-web">
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <a href="https://www.linkedin.com/in/helenapaixao/">
+    <img alt="Made by helenapaixao" src="https://img.shields.io/badge/made%20by-Jerp86-%2304D361">
+  </a>
+</p>
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Indice
 
-### `yarn eject`
+- :rocket: [Sobre o Projeto](#rocket-sobre-o-projeto)
+- 👨‍💻️ [Tecnogias utilizadas](#%EF%B8%8F-tecnogias-utilizadas)
+- 📦️ [Como utilizar o projeto](#%EF%B8%8F-como-utilizar-o-projeto)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## :rocket: Sobre o Projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+A proposta para o  Teste de Front-End era desenvolver uma aplicação
 
-## Learn More
+O **GoBarber Web** é a construção da versão web  💈️💇‍♂️️
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Este projeto de Front-end Web foi desenvolvido em ReactJS com TypeScript.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 👨‍💻️ Tecnogias utilizadas
+
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
+
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+### Dependências
+
+  - [Axios](https://github.com/axios/axios)
+  - :sparkles: [Polished](https://polished.js.org/)
+  - [React Day Picker](https://react-day-picker.js.org/)
+  - [React Router DOM](https://github.com/ReactTraining/react-router#readme)
+  - [React Spring](https://www.react-spring.io/)
+  - :nail_care: [Styled Components](https://styled-components.com/)
+  - [UUIDv4](https://github.com/thenativeweb/uuidv4#readme)
+  - [Yup](https://github.com/jquense/yup)
+
+### Padronização de código
+
+  - [ESLint](https://eslint.org/)
+  - [Prettier](https://prettier.io/)
+  - :mouse: [Editor Config](https://editorconfig.org/)
+
+### IDE
+
+  - [Visual Studio Code](https://code.visualstudio.com/)
+
+---
+
+## 📦️ Como utilizar o projeto
+
+Para copiar o projeto, utilize os comandos:
+
+```bash
+  # Clonar o repositório
+  ❯ git clone https://github.com/helenapaixao/desafio-vaga-frontend
+
+  # Entrar no diretório
+  ❯ cd desafio-vaga-frontend
+
+```
+Para instalar as dependências e iniciar o projeto, você pode utilizar o Yarn ou NPM:
+
+**Utilizando yarn**
+
+```bash
+  # Instalar as dependências
+  ❯ yarn
+
+  # Iniciar o projeto
+  ❯ yarn start
+```
+
+**Utilizando npm**
+
+*PS: Caso utilize o NPM, apaque o arquivo `yarn.lock` para ter todas as dependências instaladas da melhor forma.*
+
+```bash
+  # Instalar as dependências
+  ❯ npm install
+
+  # Iniciar o projeto
+  ❯ npm run start
+```
+
+```
+```
+**Utilizando Test**
+
+
+```bash
+  # Iniciar o teste
+  ❯ yarn test
+
+  # Iniciar o teste:coverage
+  ❯ yarn test:coverage
+
+```
+
+---
+
+
+<h4 align="center">
+  Feito com ❤️ por Helena Paixão 👋️ <a href="hp.helenapaixao@gmail.com">Entre em contato!</a>
+</h4>
+
