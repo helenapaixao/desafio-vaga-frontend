@@ -16,7 +16,7 @@
       "cpf": "056.454.949-99",
       "password": "123456",
       "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
-      "cidade": "Campo Grande"
+      "cidade": "Rio de Janeiro"
     },
     {
       "id": 3,
@@ -25,7 +25,7 @@
       "cpf": "056.444.989-99",
       "password": "123456",
       "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
-      "cidade": "Campo Grande"
+      "cidade": "São Paulo"
     },
     {
       "id": 4,
@@ -73,12 +73,12 @@
     },
     {
       "id": 9,
-      "name": "Batman",
+      "name": "Robson",
       "email": "teste@teste.com.br",
       "cpf": "056.454.984-99",
       "password": "123456",
       "avatar_url": "https://randomuser.me/api/portraits/men/40.jpg",
-      "cidade": "Campo Grande"
+      "cidade": "São Paulo"
     }
   ],
   "sessions": [
@@ -190,6 +190,66 @@
       "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 18
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 19
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 20
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 21
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 22
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 23
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 24
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 25
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 26
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 27
+    },
+    {
+      "email": "teste@teste.com",
+      "password": "123456",
+      "id": 28
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 29
+    },
+    {
+      "email": "teste@teste.com.br",
+      "password": "123456",
+      "id": 30
     }
   ]
 }

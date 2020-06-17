@@ -6,13 +6,15 @@ export const Container = styled.div`
 
     header {
         max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+        margin: 64px auto;
+        display: flex;
+        align-items: center;
     }
+    
 
     nav {
         div {
+            
             button {
                 color: #999591;
                 margin-left: 280px;
@@ -27,7 +29,6 @@ export const Container = styled.div`
         }
     }
 `;
-
 
 export const Profile = styled.div`
     display: flex;
@@ -48,6 +49,9 @@ export const Profile = styled.div`
     }
 
     span {
+        display: flex;
+      align-items: center;
+      text-transform: capitalize;
         color: #f4ede8;
     }
 
@@ -59,5 +63,9 @@ export const Profile = styled.div`
             opacity: 0.8;
         }
     }
-`;
 
+    svg {
+        margin-left: 300px;
+        display:flex;
+    }
+`;

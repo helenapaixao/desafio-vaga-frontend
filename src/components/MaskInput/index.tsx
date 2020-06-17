@@ -1,29 +1,28 @@
 import React, {
-    InputHTMLAttributes,
-    useEffect,
     useRef,
+    useEffect,
+    InputHTMLAttributes,
     useState,
     useCallback,
 } from 'react';
+import ReactInputMask, { Props as InputProps } from 'react-input-mask';
 import { Container, Error } from './styles';
 import { FiAlertCircle } from 'react-icons/fi';
 import { IconBaseProps } from 'react-icons';
 import { useField } from '@unform/core';
 
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface Props extends InputProps {
     name: string;
     containerStyle?: object;
     icon?: React.ComponentType<IconBaseProps>;
 }
-
-
-  
-const Input: React.FC<InputProps> = ({ 
+const InputMask: React.FC<Props> = ({
     name,
-    containerStyle={},
-    icon: Icon, 
-    ...rest }) => {
+    containerStyle = {},
+    icon: Icon,
+    ...rest
+}) => {
+
     const inputRef = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(false);
@@ -47,19 +46,33 @@ const Input: React.FC<InputProps> = ({
         });
     }, [fieldName, registerField]);
 
+    useEffect(() => {
+        registerField({
+            name: fieldName,
+            ref: inputRef.current,
+            path: 'value',
+            setValue(ref: any, value: string) {
+                ref.setInputValue(value);
+            },
+            clearValue(ref: any) {
+                ref.setInputValue('');
+            },
+        });
+    }, [fieldName, registerField]);
+
     return (
         <Container
-        style={containerStyle}
+            style={containerStyle}
             isErrored={!!error}
             isFilled={isFilled}
             isFocused={isFocused}
         >
             {Icon && <Icon size={20} />}
-            <input
+            <ReactInputMask
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 defaultValue={defaultValue}
-                ref={inputRef}
+             
                 {...rest}
             />
             {error && (
@@ -70,5 +83,4 @@ const Input: React.FC<InputProps> = ({
         </Container>
     );
 };
-
-export default Input;
+export default InputMask;

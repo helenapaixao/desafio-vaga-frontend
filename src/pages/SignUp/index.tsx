@@ -16,7 +16,7 @@ import {
 } from 'react-icons/fi';
 
 import { Link, useHistory } from 'react-router-dom';
-import useCep from "use-cep-hook";
+import useCep from 'use-cep-hook';
 import { useToast } from '../../hooks/toast';
 
 import axios from 'axios';
@@ -30,7 +30,11 @@ import { FormHandles } from '@unform/core';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+
 import getValidationErrors from '../../utils/getValidationErrors';
+import MaskInput from '../../components/MaskInput'
+
+
 
 interface SignUpFormData {
     name: string;
@@ -50,34 +54,23 @@ interface CEPResponse {
 }
 
 const SignUp: React.FC = () => {
- 
-    const [postalCode, setPostalCode] = useState("");
+    const [postalCode, setPostalCode] = useState('');
 
-    const [loading, cep, error,] = useCep(postalCode);
+    const [loading, cep, error] = useCep(postalCode);
 
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
     const history = useHistory();
 
-
     useEffect(() => {
-
         axios
-        .get<CEPResponse[]>(
-            ` https://webmaniabr.com/api/1/cep/${postalCode}/?app_key=kIgtLog0Mm2x10vZpFMt0jvW2vCRj3s5&app_secret=w7BIRk4quymQD2VJZaLSOMzId35eYGQZ7O2Xtn1gvVgepC6u`,
-        )
-       
-        .then(response => {
-            //mudando estado
-          //  const ruas = response.data.map(cep => cep.logradouro);
-          //  setRuas(ruas);
-          //  const bairros = response.data.map(cep => cep.bairro);
-          //  setBairros(bairros);
-          //  const cidades = response.data.map(cep => cep.cidade);
-           // setCidades(cidades);
-           console.log(response.data)
-        });
-       
+            .get<CEPResponse[]>(
+                ` https://viacep.com.br/ws/${postalCode}/json/unicode`,
+            )
+
+            .then(response => {
+                console.log(response.data);
+            });
     }, [setPostalCode]);
 
     const handleSubmit = useCallback(
@@ -139,10 +132,11 @@ const SignUp: React.FC = () => {
                             icon={FiUser}
                             placeholder="Nome"
                         />
-                        <Input
+                        <MaskInput
                             name="cpf"
                             icon={FiCreditCard}
                             placeholder="CPF"
+                            mask="999.999.999-99"
                         />
                         <Input
                             name="email"
@@ -156,13 +150,16 @@ const SignUp: React.FC = () => {
                             icon={FiLock}
                             placeholder="Senha"
                         />
-
-                        <Input
+                        <MaskInput
                             name="cep"
+                            mask="99999-999"
                             icon={FiSend}
                             placeholder="CEP"
-                            onChange={e => setPostalCode(e.target.value)} value={postalCode} 
+                            onChange={e => setPostalCode(e.target.value)}
+                            value={postalCode}
+                       
                         />
+
                         <Input
                             name="bairro"
                             icon={FiSend}

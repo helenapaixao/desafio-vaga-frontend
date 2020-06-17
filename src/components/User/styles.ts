@@ -7,6 +7,7 @@ export const Container = styled.div``;
 export const Card = styled.div`
     margin-top: 120px;
 
+
     >strong {
         color: #999591;
         font-size: 20px;

@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
 
-
-
+`;
 
 export const Content = styled.main`
     max-width: 1120px;
@@ -27,6 +26,7 @@ export const Shedule = styled.div`
         span {
             display: flex;
             align-items: center;
+            text-transform: capitalize;
         }
 
         span + span ::before {
@@ -41,14 +41,20 @@ export const Shedule = styled.div`
 `;
 
 export const UsersContainer = styled.div`
-    width: 100%;
+    width: 0 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 40px 20px 40px 20px;
     margin-top: -100px;
 
     display: list-item;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     grid-gap: 32px;
+    object-fit: cover;
+
+    @media (max-width: 885px) {
+        display: flex;
+        flex-direction: column;
+    }
 `;

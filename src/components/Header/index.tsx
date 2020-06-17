@@ -35,9 +35,12 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => {
                                     <strong>Helena Paixão</strong>
                                 </Link>
                             </div>
+                            <div>
                             <button type="button" onClick={signOut}>
                                 <FiPower />
                             </button>
+                            </div>
+                            
                         </Profile>
                     </div>
                 </nav>

@@ -8,6 +8,7 @@ import {
 } from 'react-icons/fi';
 
 import { Container, Card } from './styles';
+import Skeleton from 'react-loading-skeleton';
 
 
 interface Userdata {
