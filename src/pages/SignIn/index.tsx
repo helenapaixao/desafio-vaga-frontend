@@ -10,7 +10,8 @@ import getValidationErrors from '../../utils/getValidationErrors';
 
 
 
-import { Link, useHistory } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+import { useHistory } from "react-router";
 
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
@@ -55,11 +56,11 @@ const SignIn: React.FC = () => {
                 });
 
                 history.push('/dashboard');
-                addToast({
-                    type: 'success',
-                    title: 'Login realizado! 🚀',
-                    description: 'Bem vindo!!',
-                });
+               addToast({
+                  type: 'success',
+                   title: 'Login realizado! 🚀',
+                   description: 'Bem vindo!!',
+              });
             
             } catch (err) {
                 if(err instanceof Yup.ValidationError) {
@@ -68,11 +69,11 @@ const SignIn: React.FC = () => {
                     return;
                 }
                 addToast({
-                    type: 'error',
-                    title: 'Erro na autenticação',
-                    description:
-                        'Ocorreu um erro ao fazer o login, cheque as credenciais ',
-                });
+                   type: 'error',
+                   title: 'Erro na autenticação',
+                   description:
+                      'Ocorreu um erro ao fazer o login, cheque as credenciais ',
+               });
             }
         },
         [signIn, addToast, history],

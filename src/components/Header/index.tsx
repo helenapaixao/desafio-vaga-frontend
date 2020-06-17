@@ -5,7 +5,7 @@ import { Container, Profile } from './styles';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
-import { FiPlusSquare } from 'react-icons/fi';
+
 
 import Logo from '../../assets/logo.svg';
 

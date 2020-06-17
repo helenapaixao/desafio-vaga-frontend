@@ -6,6 +6,7 @@ import { Form } from '@unform/web';
 import Modal from '../Modal';
 import Input from '../Input';
 import Button from '../Button';
+import MaskInput from '../MaskInput'
 
 interface Userdata {
     id: number;
@@ -65,7 +66,11 @@ const ModalAddUser: React.FC<ModalProps> = ({
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
                 <Input name="password" placeholder="Senha" />
-                <Input name="cpf" placeholder="CPF" />
+                <MaskInput
+                            name="cpf"      
+                            placeholder="CPF"
+                            mask="999.999.999-99"
+                        />
                 <Input name="cidade" placeholder="Cidade" />
 
                 <Button type="submit" data-testid="add-user-button">

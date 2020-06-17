@@ -1,7 +1,6 @@
 import React, {
     useRef,
     useEffect,
-    InputHTMLAttributes,
     useState,
     useCallback,
 } from 'react';

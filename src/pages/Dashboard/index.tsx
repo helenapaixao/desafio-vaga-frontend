@@ -7,7 +7,6 @@ import ModalEditUser from '../../components/ModalEditUser';
 import ModalAddUser from '../../components/ModalAddUser';
 import Header from '../../components/Header';
 
-import { FiPlusSquare } from 'react-icons/fi';
 
 
 interface Userdata {
