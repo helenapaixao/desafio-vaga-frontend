@@ -13,16 +13,10 @@ export const Container = styled.div`
     
 
     nav {
+
         div {
             
-            button {
-                color: #999591;
-                margin-left: 180px;
-                background: transparent;
-                border: 0;
-                height: 20px;
-                align-items:center;
-            }
+           
         }
 
         > img {
@@ -55,6 +49,14 @@ export const Profile = styled.div`
       text-transform: capitalize;
         color: #f4ede8;
     }
+    button {
+                color: #999591;
+                margin-left: 180px;
+                background: transparent;
+                border: 0;
+                height: 20px;
+                align-items:center;
+            }
 
     a {
         text-decoration: none;

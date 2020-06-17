@@ -61,6 +61,14 @@
       "password": "123456",
       "avatar_url": "https://randomuser.me/api/portraits/men/40.jpg",
       "cidade": "São Paulo"
+    },
+    {
+      "avatar_url": "",
+      "name": "",
+      "email": "",
+      "password": "",
+      "cidade": "",
+      "id": 10
     }
   ],
   "sessions": [
@@ -92,61 +100,6 @@
       "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 9
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 10
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 11
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 12
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 13
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 14
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 15
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 16
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 17
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 18
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 19
-    },
-    {
-      "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
-      "id": 20
     }
   ]
 }

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
 
@@ -11,6 +11,7 @@ export const Container = styled.div`
   align-items: center;
   display: flex;
   color: #666360;
+  margin-bottom: 30px;
   & + div {
     margin-top: 8px;
   }
@@ -26,6 +27,7 @@ export const Container = styled.div`
   }
   svg {
     margin-right: 16px;
+    color:#FFF;
    
   }
 `;

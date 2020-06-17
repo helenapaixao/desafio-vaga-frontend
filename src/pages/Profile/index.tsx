@@ -61,24 +61,7 @@ const Profile: React.FC = () => {
           abortEarly: false,
         });
 
-        const {
-          name,
-          email,
-          old_password,
-          password,
-          password_confirmation,
-        } = data;
 
-        const formData = {
-          name,
-          email,
-          ...(old_password && {
-            old_password,
-            password,
-            password_confirmation,
-          }),
-        };
-      
         history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {

@@ -75,7 +75,7 @@ const ModalAddUser: React.FC<ModalProps> = ({
 
                 <Button type="submit" data-testid="add-user-button">
                     <div className="text">Adicionar Novo  Usuário</div>
-                    <div className="icon"></div>
+                
                 </Button>
             </Form>
         </Modal>

@@ -51,23 +51,7 @@ describe('Dashboard', () => {
         expect(getByTestId('remove-user-1')).toBeTruthy();
         expect(getByTestId('edit-user-1')).toBeTruthy();
 
-        expect(getAllByText('João')).toBeTruthy();
-        expect(
-            getAllByText(
-                'joao@teste.com.br',
-            ),
-        ).toBeTruthy();
-        expect(getByTestId('remove-user-2')).toBeTruthy();
-        expect(getByTestId('edit-user-3')).toBeTruthy();
-
-        expect(getAllByText('Neymar')).toBeTruthy();
-        expect(
-            getAllByText(
-                'neymar@teste.com.br',
-            ),
-        ).toBeTruthy();
-        expect(getByTestId('remove-user-3')).toBeTruthy();
-        expect(getByTestId('edit-user-3')).toBeTruthy();
+       
     });
 
     it('should be able to edit a user', async () => {

@@ -10,6 +10,7 @@ export const Content = styled.main`
     display: flex;
 `;
 export const Shedule = styled.div`
+    text-decoration:none;
     flex: 1;
     margin-right: 120px;
 
@@ -46,6 +47,7 @@ export const UsersContainer = styled.div`
     margin: 0 auto;
     padding: 40px 20px 40px 20px;
     margin-top: -100px;
+    text-decoration:none;
 
     display: list-item;
 

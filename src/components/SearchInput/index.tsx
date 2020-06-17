@@ -1,14 +1,7 @@
-import React, {
-    InputHTMLAttributes,
-    useEffect,
-    useRef,
-    useState,
-    useCallback,
-} from 'react';
+import React, { InputHTMLAttributes, useRef } from 'react';
 import { Container } from './styles';
 
 import { IconBaseProps } from 'react-icons';
-import { useField } from '@unform/core';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     name?: string;
@@ -27,7 +20,7 @@ const SearchInput: React.FC<InputProps> = ({
 
     return (
         <Container style={containerStyle} data-testid="input-container">
-            {Icon && <Icon name="search"  size={20} />}
+            {Icon && <Icon name="search" size={20} />}
             <input ref={inputRef} {...rest} />
         </Container>
     );
