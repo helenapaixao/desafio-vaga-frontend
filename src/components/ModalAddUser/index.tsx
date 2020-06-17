@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 
 
 import { FormHandles } from '@unform/core';
@@ -20,14 +20,7 @@ interface Userdata {
     cidade: string;
 }
 
-interface IModalProps {
-    isOpen: boolean;
-    setIsOpen: () => void;
-    handleUpdateUser: (user: Omit<Userdata, 'id'>) => void;
-    editingUser: Userdata;
-}
-
-interface IEditUserData {
+interface UserCreateData {
     id: number;
     name: string;
     email: string;
@@ -40,45 +33,48 @@ interface IEditUserData {
     cidade: string;
 }
 
-const ModalEditUser: React.FC<IModalProps> = ({
+interface ModalProps {
+    isOpen: boolean;
+    setIsOpen: () => void;
+    handleAddUser: (user: Omit<Userdata, 'id'>) => void;
+}
+
+const ModalAddUser: React.FC<ModalProps> = ({
     isOpen,
     setIsOpen,
-    editingUser,
-    handleUpdateUser,
+    handleAddUser,
 }) => {
     const formRef = useRef<FormHandles>(null);
 
     const handleSubmit = useCallback(
-        async (data: IEditUserData) => {
-            handleUpdateUser(data);
+        async (data: UserCreateData) => {
+            handleAddUser(data);
             setIsOpen();
         },
-        [handleUpdateUser, setIsOpen],
+        [handleAddUser, setIsOpen],
     );
 
     return (
         <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-            <Form
-                ref={formRef}
-                onSubmit={handleSubmit}
-                initialData={editingUser}
-            >
-                <h1>Editar Usuario Cadastrado</h1>
-
+            <Form ref={formRef} onSubmit={handleSubmit}>
+                <h1>Novo Usuario</h1>
+                <Input
+                    name="avatar_url"
+                    placeholder="Cole o link aqui da imagem"
+                />
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
-                <Input name="endereco" placeholder="Endereço" />
+                <Input name="password" placeholder="Senha" />
                 <Input name="cpf" placeholder="CPF" />
+                <Input name="cidade" placeholder="Cidade" />
 
-                <Button type="submit" data-testid="edit-user-button">
-                    <div className="text">Editar Usuário</div>
-                    <div className="icon">
-                     
-                    </div>
+                <Button type="submit" data-testid="add-user-button">
+                    <div className="text">Adicionar Novo  Usuário</div>
+                    <div className="icon"></div>
                 </Button>
             </Form>
         </Modal>
     );
 };
 
-export default ModalEditUser;
+export default ModalAddUser;

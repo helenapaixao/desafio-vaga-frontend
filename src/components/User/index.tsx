@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fi';
 
 import { Container, Card } from './styles';
-import Skeleton from 'react-loading-skeleton';
+
 
 
 interface Userdata {
@@ -17,11 +17,11 @@ interface Userdata {
     email: string;
     cpf: number;
     password: string;
-    avatar_url: string;
-    endereco: string;
+    endereco:string;
     numero: number;
     rua: string;
     cidade: string;
+    avatar_url:string;
 }
 
 interface UserProps {

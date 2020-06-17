@@ -5,9 +5,9 @@ import { Container, Profile } from './styles';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 
+import { FiPlusSquare } from 'react-icons/fi';
+
 import Logo from '../../assets/logo.svg';
-
-
 
 interface IHeaderProps {
     openModal: () => void;
@@ -15,7 +15,6 @@ interface IHeaderProps {
 
 const Header: React.FC<IHeaderProps> = ({ openModal }) => {
     const { signOut } = useAuth();
-
 
     return (
         <Container>
@@ -36,11 +35,18 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => {
                                 </Link>
                             </div>
                             <div>
-                            <button type="button" onClick={signOut}>
-                                <FiPower />
-                            </button>
-                            </div>
+                                <div>
+                                <button type="button" onClick={openModal}>
+                                    <div className="text"> Adicionar novo Usuario</div>
+                                </button>
+                                </div>
+                              
+                                <button type="button" onClick={signOut}>
+                                    <FiPower />
+                                </button>
+                              
                             
+                            </div>
                         </Profile>
                     </div>
                 </nav>

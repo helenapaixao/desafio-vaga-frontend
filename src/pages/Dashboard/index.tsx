@@ -4,7 +4,10 @@ import { Container, Content, Shedule, UsersContainer } from './styles';
 import User from '../../components/User';
 import api from '../../services/api';
 import ModalEditUser from '../../components/ModalEditUser';
+import ModalAddUser from '../../components/ModalAddUser';
 import Header from '../../components/Header';
+
+import { FiPlusSquare } from 'react-icons/fi';
 
 
 interface Userdata {
@@ -20,6 +23,7 @@ interface Userdata {
     cidade: string;
 }
 
+
 const Dashboard: React.FC = () => {
     const [users, setUsers] = useState<Userdata[]>([]);
     const [editingUser, setEditingUser] = useState<Userdata>({} as Userdata);
@@ -31,6 +35,21 @@ const Dashboard: React.FC = () => {
             setUsers(resp.data);
         });
     }, []);
+
+
+    async function handleAddUser(
+        user: Omit<Userdata, 'id'>,
+      ): Promise<void> {
+        try {
+          const responseAdd = await api.post<Userdata>('/users', {
+            ...user,
+            
+          });
+          setUsers([...users, responseAdd.data]);
+        } catch (err) {
+          console.log(err);
+        }
+      }
 
     async function handleUpdateUser(user: Omit<Userdata, 'id'>): Promise<void> {
         const { id } = editingUser;
@@ -68,6 +87,12 @@ const Dashboard: React.FC = () => {
     return (
         <Container>
             <Header openModal={toggleModal}></Header>
+            <ModalAddUser
+        isOpen={modalOpen}
+        setIsOpen={toggleModal}
+        handleAddUser={handleAddUser}
+      />
+   
             <ModalEditUser
                 isOpen={editModalOpen}
                 setIsOpen={toggleEditModal}

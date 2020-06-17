@@ -1,15 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Helena Paixão",
-      "email": "teste@teste.com.br",
-      "cpf": "056.454.989-99",
-      "password": "123456",
-      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
-      "cidade": "Campo Grande"
-    },
-    {
       "id": 2,
       "name": "João",
       "email": "joao@teste.com.br",
@@ -250,6 +241,51 @@
       "email": "teste@teste.com.br",
       "password": "123456",
       "id": 30
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 31
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 32
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 33
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 34
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 35
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 36
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 37
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 38
+    },
+    {
+      "email": "hp.helenapaixao@gmail.com",
+      "password": "123456",
+      "id": 39
     }
   ]
 }

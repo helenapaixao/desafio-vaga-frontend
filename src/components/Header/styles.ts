@@ -17,10 +17,11 @@ export const Container = styled.div`
             
             button {
                 color: #999591;
-                margin-left: 280px;
+                margin-left: 180px;
                 background: transparent;
                 border: 0;
                 height: 20px;
+                align-items:center;
             }
         }
 

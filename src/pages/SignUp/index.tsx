@@ -16,7 +16,6 @@ import {
 } from 'react-icons/fi';
 
 import { Link, useHistory } from 'react-router-dom';
-import useCep from 'use-cep-hook';
 import { useToast } from '../../hooks/toast';
 
 import axios from 'axios';
@@ -32,9 +31,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import getValidationErrors from '../../utils/getValidationErrors';
-import MaskInput from '../../components/MaskInput'
-
-
+import MaskInput from '../../components/MaskInput';
 
 interface SignUpFormData {
     name: string;
@@ -48,15 +45,13 @@ interface SignUpFormData {
 
 interface CEPResponse {
     bairro: string;
-    logradouro: string;
     localidade: string;
-    cidade: string;
 }
 
 const SignUp: React.FC = () => {
     const [postalCode, setPostalCode] = useState('');
-
-    const [loading, cep, error] = useCep(postalCode);
+    const [datas, setData] = useState<string[]>([]);
+    const [cidades, setcidades] = useState<CEPResponse[]>([]);
 
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
@@ -69,7 +64,9 @@ const SignUp: React.FC = () => {
             )
 
             .then(response => {
-                console.log(response.data);
+                const cidade = 
+                setcidades(response.data)
+               
             });
     }, [setPostalCode]);
 
@@ -157,7 +154,6 @@ const SignUp: React.FC = () => {
                             placeholder="CEP"
                             onChange={e => setPostalCode(e.target.value)}
                             value={postalCode}
-                       
                         />
 
                         <Input
@@ -165,11 +161,18 @@ const SignUp: React.FC = () => {
                             icon={FiSend}
                             placeholder="Bairro"
                         />
-                        <Input
-                            name="cidade"
-                            icon={FiSend}
-                            placeholder="Cidade"
-                        />
+
+                   
+                            <Input
+                                name="cidade"
+                                icon={FiSend}
+                                placeholder="Cidade"
+                        
+                            >
+                            
+                            </Input>
+                    
+
                         <Button type="submit">Cadastrar</Button>
                     </Form>
 
