@@ -21,8 +21,8 @@ const InputMask: React.FC<Props> = ({
     icon: Icon,
     ...rest
 }) => {
-
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef(null);
+ 
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(false);
 
@@ -34,22 +34,17 @@ const InputMask: React.FC<Props> = ({
 
     const handleInputBlur = useCallback(() => {
         setIsFocused(false);
-        setIsFilled(!!inputRef.current?.value);
+        setIsFilled(!!inputRef.current);
     }, []);
 
-    useEffect(() => {
-        registerField({
-            name: fieldName,
-            ref: inputRef.current,
-            path: 'value',
-        });
-    }, [fieldName, registerField]);
+ 
 
     useEffect(() => {
         registerField({
             name: fieldName,
             ref: inputRef.current,
             path: 'value',
+
             setValue(ref: any, value: string) {
                 ref.setInputValue(value);
             },
@@ -68,6 +63,7 @@ const InputMask: React.FC<Props> = ({
         >
             {Icon && <Icon size={20} />}
             <ReactInputMask
+            ref={inputRef}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
                 defaultValue={defaultValue}

@@ -3,7 +3,6 @@ import React, {
     useRef,
     useEffect,
     useState,
-    ChangeEvent,
 } from 'react';
 import { Container, Content, AnimationContainer, Background } from './styles';
 import {
@@ -50,8 +49,7 @@ interface CEPResponse {
 
 const SignUp: React.FC = () => {
     const [postalCode, setPostalCode] = useState('');
-    const [datas, setData] = useState<string[]>([]);
-    const [cidades, setcidades] = useState<CEPResponse[]>([]);
+
 
     const formRef = useRef<FormHandles>(null);
     const { addToast } = useToast();
@@ -64,9 +62,8 @@ const SignUp: React.FC = () => {
             )
 
             .then(response => {
-                const cidade = 
-                setcidades(response.data)
-               
+          
+               console.log(response.data);
             });
     }, [setPostalCode]);
 

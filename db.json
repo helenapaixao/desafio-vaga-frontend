@@ -1,6 +1,24 @@
 {
   "users": [
     {
+      "id": 1,
+      "name": "Helena Paixão",
+      "email": "hp.helenapaixao@gmail.com",
+      "cpf": "056.444.989-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "Campo Grande"
+    },
+    {
+      "id": 2,
+      "name": "José",
+      "email": "josé@teste.com.br",
+      "cpf": "056.444.989-99",
+      "password": "123456",
+      "avatar_url": "https://api.adorable.io/avatars/285/abott@adorable.png",
+      "cidade": "São Paulo"
+    },
+    {
       "id": 3,
       "name": "Neymar",
       "email": "neymar@teste.com.br",
@@ -55,57 +73,15 @@
       "cidade": "São Paulo"
     },
     {
-      "avatar_url": "",
-      "name": "",
-      "email": "",
-      "password": "",
-      "cidade": "",
-      "id": 10
-    },
-    {
-      "avatar_url": "",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/11083288?s=460&u=195f820bdb85e57d7e08038a3f8eec821421d83d&v=4",
       "name": "Helena teste",
       "email": "hp.helenapaixao@gmail.com",
-      "password": "123456",
       "cidade": "Campo Grande",
+      "cpf": "262.626.262-62",
       "id": 11
     },
     {
-      "avatar_url": "",
-      "name": "teste add ",
-      "email": "teste@teste.com.br",
-      "password": "123456",
-      "cidade": "strer",
-      "id": 12
-    },
-    {
-      "avatar_url": "",
-      "name": "",
-      "email": "",
-      "password": "",
-      "cpf": "00000000000000000",
-      "cidade": "",
-      "id": 14
-    },
-    {
-      "avatar_url": "",
-      "name": "",
-      "email": "",
-      "password": "",
-      "cidade": "",
-      "id": 15
-    },
-    {
-      "avatar_url": "",
-      "name": "qeqweqw",
-      "email": "qweqweqw@gmail.com",
-      "password": "12312312",
-      "cpf": "312312312",
-      "cidade": "sdsda",
-      "id": 16
-    },
-    {
-      "avatar_url": "",
+      "avatar_url": "https://randomuser.me/api/portraits/men/40.jpg",
       "name": "qeqweqw",
       "email": "qweqweqw@gmail.com",
       "password": "12312312",
@@ -145,7 +121,7 @@
       "id": 9
     },
     {
-      "email": "teste@teste.com.br",
+      "email": "hp.helenapaixao@gmail.com",
       "password": "123456",
       "id": 10
     }

@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import Input from '../Input';
 import Button from '../Button';
 import MaskInput from '../MaskInput';
+import './styles';
 
 interface Userdata {
     id: number;
@@ -65,9 +66,14 @@ const ModalEditUser: React.FC<IModalProps> = ({
             >
                 <h1>Editar Usuario Cadastrado</h1>
 
+                <Input
+                    name="avatar_url"
+                    placeholder="Cole o link aqui da imagem"
+                />
+
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
-                <Input name="endereco" placeholder="Endereço" />
+                <Input name="cidade" placeholder="Cidade" />
                 <MaskInput mask="999.999.999-99" name="cpf" placeholder="CPF" />
 
                 <Button type="submit" data-testid="edit-user-button">

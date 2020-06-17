@@ -92,7 +92,7 @@ const ModalAddUser: React.FC<ModalProps> = ({
                 <Input name="name" placeholder="Nome" />
                 <Input name="email" placeholder="E-mail" />
                 <Input name="password" type="password" placeholder="Senha" />
-                <Input name="cpf"  placeholder="CPF" />
+                <MaskInput mask="999.999.999-99" name="cpf"  placeholder="CPF" />
                 <Input name="cidade" placeholder="Cidade" />
 
                 <Button type="submit" data-testid="add-user-button">
